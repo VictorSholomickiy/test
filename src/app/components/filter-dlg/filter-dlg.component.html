@@ -1,0 +1,121 @@
+<div class="custom-modal filter-dlg">
+  <modal-header title="FILTER"
+                (closeModal)="dialogRef.close(null)">
+  </modal-header>
+
+  <div class="custom-modal__content">
+    <form class="custom-form"
+          [formGroup]="form"
+          (ngSubmit)="onSubmit()">
+      <div class="_d-f _direction-row _pb-20">
+        <div class="custom-form__item _pr-10">
+          <div class="custom-form__item-title _fs-14 _pb-5">
+            Volume Min
+          </div>
+
+          <mat-form-field class="custom-form__item-field"
+                          appearance="outline">
+            <input class="custom-form__item-field-input"
+                   matInput
+                   type="number"
+                   placeholder="Enter value"
+                   [formControlName]="FormFields.VolumeMin">
+          </mat-form-field>
+        </div>
+
+        <div class="custom-form__item">
+          <div class="custom-form__item-title _fs-14 _pb-5">
+            Volume Max
+          </div>
+
+          <mat-form-field class="custom-form__item-field"
+                          appearance="outline">
+            <input class="custom-form__item-field-input"
+                   matInput
+                   type="number"
+                   placeholder="Enter value"
+                   [formControlName]="FormFields.VolumeMax">
+          </mat-form-field>
+        </div>
+      </div>
+
+      <div class="_d-f _direction-row _pb-20">
+        <div class="custom-form__item _pr-10">
+          <div class="custom-form__item-title _fs-14 _pb-5">
+            Price Change Min, %
+          </div>
+
+          <mat-form-field class="custom-form__item-field"
+                          appearance="outline">
+            <input class="custom-form__item-field-input"
+                   matInput
+                   type="number"
+                   placeholder="Enter value"
+                   [formControlName]="FormFields.PriceChangePercentageMin">
+          </mat-form-field>
+        </div>
+
+        <div class="custom-form__item">
+          <div class="custom-form__item-title _fs-14 _pb-5">
+            Price Change Max, %
+          </div>
+
+          <mat-form-field class="custom-form__item-field"
+                          appearance="outline">
+            <input class="custom-form__item-field-input"
+                   matInput
+                   type="number"
+                   placeholder="Enter value"
+                   [formControlName]="FormFields.PriceChangePercentageMax">
+          </mat-form-field>
+        </div>
+      </div>
+
+      <div class="_d-f _direction-row _pb-20">
+        <div class="custom-form__item _pr-10">
+          <div class="custom-form__item-title _fs-14 _pb-5">
+            Price Range Min
+          </div>
+
+          <mat-form-field class="custom-form__item-field"
+                          appearance="outline">
+            <input class="custom-form__item-field-input"
+                   matInput
+                   type="number"
+                   placeholder="Enter value"
+                   [formControlName]="FormFields.PriceRangeMin">
+          </mat-form-field>
+        </div>
+
+        <div class="custom-form__item ">
+          <div class="custom-form__item-title _fs-14 _pb-5">
+            Price Range Max
+          </div>
+
+          <mat-form-field class="custom-form__item-field"
+                          appearance="outline">
+            <input class="custom-form__item-field-input"
+                   matInput
+                   type="number"
+                   placeholder="Enter value"
+                   [formControlName]="FormFields.PriceRangeMax">
+          </mat-form-field>
+        </div>
+      </div>
+
+      <div class="_d-f _justify-between">
+        <button mat-stroked-button
+                type="button"
+                (click)="dialogRef.close(null)">
+          Cancel
+        </button>
+
+        <button mat-flat-button
+                color="primary"
+                type="submit">
+          Apply
+        </button>
+      </div>
+    </form>
+  </div>
+</div>

@@ -1,0 +1,20 @@
+.modal-header {
+  height: 50px;
+  line-height: 1;
+  border-bottom: 1px solid black;
+  &__title {
+    font-size: 16px;
+  }
+  &__close-btn {
+    width: 26px;
+    height: 26px;
+    line-height: 26px;
+    &.mdc-icon-button.mat-mdc-icon-button.mat-mdc-button-base {
+      .modal-header__close-btn-icon.mat-icon {
+        width: 16px;
+        height: 16px;
+        line-height: 20px;
+      }
+    }
+  }
+}

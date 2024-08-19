@@ -1,0 +1,121 @@
+<div
+     [pending]="dataStore.pending()">
+  <div class="_d-f _mb-10">
+    <button mat-mini-fab
+            title="Filter data"
+            color="primary"
+            (click)="openFilterDlg()">
+      <mat-icon>filter_list</mat-icon>
+    </button>
+
+    @if (dataStore.filterHasValue()) {
+      <button mat-mini-fab
+              title="Clear filter data"
+              class="_ml-10"
+              color="warn"
+              (click)="clearFilter()">
+        <mat-icon>clear</mat-icon>
+      </button>
+    }
+  </div>
+
+  <div class="_base-page">
+    <table matSort
+           mat-table
+           matSortDirection="asc"
+           class="mat-elevation-z8"
+           [matSortDisableClear]="true"
+           [dataSource]="dataSource">
+      <!-- Symbol Column-->
+      <ng-container matColumnDef="symbol">
+        <th *matHeaderCellDef
+            mat-header-cell
+            mat-sort-header="symbol">
+          Symbol
+        </th>
+
+        <td *matCellDef="let element"
+            mat-cell>
+          <div class="_text-decoration-underline">
+            {{ element.symbol }}
+          </div>
+        </td>
+      </ng-container>
+
+      <!-- Price Column-->
+      <ng-container matColumnDef="lastPrice">
+        <th *matHeaderCellDef
+            mat-header-cell
+            mat-sort-header="lastPrice">
+          Price
+        </th>
+
+        <td *matCellDef="let element"
+            mat-cell>
+          {{ element.lastPrice }}
+        </td>
+      </ng-container>
+
+      <!-- Volume Column-->
+      <ng-container matColumnDef="volume">
+        <th *matHeaderCellDef
+            mat-header-cell
+            mat-sort-header="volume">
+          Volume
+        </th>
+
+        <td *matCellDef="let element"
+            mat-cell>
+          {{ element.volume }}
+        </td>
+      </ng-container>
+
+      <!-- Price Change Percent Column-->
+      <ng-container matColumnDef="priceChangePercent">
+        <th *matHeaderCellDef
+            mat-header-cell
+            mat-sort-header="priceChangePercent">
+          Price Change %
+        </th>
+
+        <td *matCellDef="let element"
+            mat-cell>
+          {{ element.priceChangePercent }}
+        </td>
+      </ng-container>
+
+      <!-- Price Change Column-->
+      <ng-container matColumnDef="priceChange">
+        <th *matHeaderCellDef
+            mat-header-cell
+            mat-sort-header="priceChange">
+          Price Range
+        </th>
+
+        <td *matCellDef="let element"
+            mat-cell>
+          {{ element.priceChange }}
+        </td>
+      </ng-container>
+
+      <tr *matHeaderRowDef="displayedColumns"
+          mat-header-row>
+      </tr>
+
+      <tr *matRowDef="let element; columns: displayedColumns;"
+          class="_pointer"
+          (click)="get24hPriceHistory(element.symbol)"
+          mat-row>
+      </tr>
+
+      <tr *matNoDataRow>
+        @if (!dataStore.data().length || dataStore.pending()) {
+          <td class="_p-12 _fs-12 _line-height-16 _text-primary-new"
+              [attr.colspan]="displayedColumns.length">
+            {{ dataStore.pending() ? 'Loading...' : 'No Data.' }}
+          </td>
+        }
+      </tr>
+    </table>
+  </div>
+</div>

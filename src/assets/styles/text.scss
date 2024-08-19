@@ -1,0 +1,44 @@
+._text {
+	&-start {
+		text-align: start;
+	}
+	&-end {
+		text-align: end;
+	}
+	&-center {
+		text-align: center;
+	}
+	&-vertical {
+		&-middle {
+			vertical-align: middle;
+		}
+	}
+	&-lowercase {
+		text-transform: lowercase;
+	}
+	&-uppercase {
+		text-transform: uppercase;
+	}
+	&-capitalize {
+		text-transform: capitalize;
+	}
+	&-decoration {
+		&-underline {
+			text-decoration: underline;
+		}
+	}
+	&-no-wrap {
+		white-space: nowrap;
+	}
+	&-initial-wrap {
+		white-space: initial;
+	}
+	&-italic {
+		font-style: italic;
+	}
+	&-break {
+		&-all {
+			word-break: break-all;
+		}
+	}
+}

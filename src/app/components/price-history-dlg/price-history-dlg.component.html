@@ -1,0 +1,20 @@
+<div class="custom-modal"
+     [pending]="dataStore.historyPending()">
+  <modal-header title="PRICE HISTORY"
+                (closeModal)="dialogRef.close(null)">
+  </modal-header>
+
+  <div class="custom-modal__content">
+    @if (priceData()) {
+      <div class="chart-container">
+        <canvas baseChart
+                [datasets]="lineChartData()"
+                [labels]="lineChartLabels()"
+                [options]="lineChartOptions()"
+                [legend]="lineChartLegend()"
+                [type]="'line'">
+        </canvas>
+      </div>
+    }
+  </div>
+</div>

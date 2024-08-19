@@ -1,0 +1,19 @@
+.custom-modal {
+  overflow: hidden;
+  height: 100%;
+  &__body {
+    display: flex;
+    flex-direction: column;
+    padding: 20px;
+  }
+  &__content {
+    display: flex;
+    padding: 20px;
+    overflow-y: auto;
+    flex-direction: column;
+    height: calc(100% - 40px);
+    &._row {
+      flex-direction: row;
+    }
+  }
+}
