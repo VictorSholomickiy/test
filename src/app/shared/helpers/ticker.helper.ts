@@ -4,12 +4,12 @@ import { PriceTicker } from '@models/price-ticker';
 
 export function filterTickers(tickers: Ticker[], filter: DataFilter): Ticker[] {
   return tickers.filter((ticker) => {
-    const volume = parseFloat(ticker.volume);
+    const quoteVolume = parseFloat(ticker.quoteVolume);
     const priceChange = parseFloat(ticker.priceChange);
     const priceChangePercent = parseFloat(ticker.priceChangePercent);
 
-    if (filter.volumeMin !== null && volume < filter.volumeMin) return false;
-    if (filter.volumeMax !== null && volume > filter.volumeMax) return false;
+    if (filter.volumeMin !== null && quoteVolume < filter.volumeMin) return false;
+    if (filter.volumeMax !== null && quoteVolume > filter.volumeMax) return false;
 
     if (filter.priceRangeMin !== null && priceChange < filter.priceRangeMin) return false;
     if (filter.priceRangeMax !== null && priceChange > filter.priceRangeMax) return false;

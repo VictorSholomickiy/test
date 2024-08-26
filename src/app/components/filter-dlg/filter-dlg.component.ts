@@ -6,8 +6,8 @@ import { MatSelect } from '@angular/material/select';
 import { MatButton, MatIconButton } from '@angular/material/button';
 import { MatFormField, MatError } from '@angular/material/form-field';
 import { MAT_DIALOG_DATA, MatDialogRef } from '@angular/material/dialog';
+import { FormBuilder, FormGroup, ReactiveFormsModule } from '@angular/forms';
 import { MatAutocompleteTrigger, MatAutocomplete } from '@angular/material/autocomplete';
-import { FormBuilder, FormGroup, Validators, ReactiveFormsModule } from '@angular/forms';
 import { ChangeDetectionStrategy, Component, Inject, inject, OnInit, ViewEncapsulation } from '@angular/core';
 
 import { DataStore } from '@store/data.store';
@@ -73,12 +73,12 @@ export class FilterDlgComponent implements OnInit {
 
   private initForm(): void {
     this.form = this.formBuilder.group({
-      [FilterForm.VolumeMin]: [null, Validators.min(0)],
-      [FilterForm.VolumeMax]: [null, Validators.min(0)],
-      [FilterForm.PriceRangeMin]: [null, Validators.min(0)],
-      [FilterForm.PriceRangeMax]: [null, Validators.min(0)],
-      [FilterForm.PriceChangePercentageMin]: [null, Validators.min(0)],
-      [FilterForm.PriceChangePercentageMax]: [null, Validators.min(0)],
+      [FilterForm.VolumeMin]: [null],
+      [FilterForm.VolumeMax]: [null],
+      [FilterForm.PriceRangeMin]: [null],
+      [FilterForm.PriceRangeMax]: [null],
+      [FilterForm.PriceChangePercentageMin]: [null],
+      [FilterForm.PriceChangePercentageMax]: [null],
     });
   }
 
